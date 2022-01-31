@@ -1,4 +1,4 @@
-# basic_django
+# template-django
 
 ## Installation
 
@@ -7,9 +7,7 @@ pip install requirements.txt
 ```
 <details>
     <summary>Additional Information</summary>
-    <ol>
-        <li>pip install django</li>
-    </ol>
+    pip install django
 </details>
 <br>
 
