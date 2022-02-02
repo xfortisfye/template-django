@@ -15,7 +15,7 @@ pip install requirements.txt
 
 1\. Create Project  
 ```bash
-django-admin startproject template_django
+django-admin startproject django_project
 ```
 
 2\. Run Server  
@@ -23,31 +23,13 @@ django-admin startproject template_django
 python manage.py runserver
 ```
 
+3\. Start App
+```bash
+python manage.py startapp blog
+```
+
 -----
-In urls.py
-```python
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('blog/', include('blogs.urls'))
-    path('', include('blog.urls')),
-]
-```
 
-In blogs/urls.py
-```python
-from django.urls import path
-from . import views
-
-urlpatterns = [
-    path('', views.home, name='blog-home'),
-]
-```
-
-In blogs/views.py
-```python
-from django.shortcuts import render
-from django.http import HttpResponse
-
-def home(request):
-    return HttpResponse('<h1>Blog Home</h1>')
-```
+- Always add your new __startup app__ from the `blog/apps.py` to the INSTALLED_APPS in `django_project/settings.py` 
+- `{% load static %}` `<link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">`
+- `path('', views.home, name='blog-home')` `<a class="nav-item nav-link" href="{% url 'blog-home' %}"> Home</a>`
